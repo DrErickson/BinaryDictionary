@@ -131,6 +131,7 @@ void BinaryDictionary::CopyHelper(BinaryDictionary::Node*& thisDict, BinaryDicti
     }
 
     thisDict = new Node;
+    thisDict->isNum = otherDict->isNum;
     CopyHelper(thisDict->zero, otherDict->zero);
     CopyHelper(thisDict->one, otherDict->one);
 }
