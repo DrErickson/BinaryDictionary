@@ -99,14 +99,14 @@ bool BinaryDictionary::Contains(string digits) {
             curr = curr->zero;
         }
         else if (digits[i] == '1') {
-            curr = curr->zero;
+            curr = curr->one;
         }
         else{
             throw "Bad digit";
         }
     }
 
-    return true;
+    return curr->isNum;
 }
 
 
