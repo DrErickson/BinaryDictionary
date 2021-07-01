@@ -16,7 +16,7 @@ class BinaryDictionary {
 public:
     BinaryDictionary();
     ~BinaryDictionary();
-    explicit BinaryDictionary(const BinaryDictionary& otherDict);
+    BinaryDictionary(const BinaryDictionary& otherDict);
 
     void SaveDictionary(string filename);
 
