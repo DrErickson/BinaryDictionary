@@ -5,7 +5,7 @@
 #include <iostream>
 #include "BinaryDictionary.h"
 
-int main(void) {
+int main() {
 
     BinaryDictionary binDictionary;
 

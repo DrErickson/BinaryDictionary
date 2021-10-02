@@ -11,6 +11,7 @@ BinaryDictionary::BinaryDictionary() {
 BinaryDictionary::BinaryDictionary(const BinaryDictionary &otherDict) {
     root = new Node;
     numValues = 0;
+    copyOther(otherDict);
 }
 
 BinaryDictionary::~BinaryDictionary() {
@@ -115,11 +116,26 @@ int BinaryDictionary::Size() {
 }
 
 
-BinaryDictionary& BinaryDictionary::operator=(const BinaryDictionary &otherDict) {
+void BinaryDictionary::copyOther(const BinaryDictionary &otherDict) {
 
+    MakeEmpty();
     CopyHelper(root, otherDict.root);
     numValues = otherDict.numValues;
 
+}
+
+
+BinaryDictionary& BinaryDictionary::operator=(const BinaryDictionary &otherDict) {
+
+    // Need to avoid self reference issue.
+    // For example:
+    // myDict = myDict;
+
+    if (this != &otherDict) {
+        copyOther(otherDict);   // Copy contents of other into *this.
+    }
+
+    // return self
     return *this;
 }
 
@@ -136,6 +152,14 @@ void BinaryDictionary::CopyHelper(BinaryDictionary::Node*& thisDict, BinaryDicti
     CopyHelper(thisDict->one, otherDict->one);
 }
 
+void BinaryDictionary::MakeEmpty() {
+    // Remove original tree
+    DestroyHelper(root);
+
+    // Rebuild root and reset number of words
+    root = new Node;
+    numValues = 0;
+}
 
 
 

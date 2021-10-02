@@ -25,6 +25,8 @@ public:
     void Add(string binValue);       // Add value to the tree
     bool Contains(string value);  // Determines if value is in the tree
 
+    void MakeEmpty();   // Remove all binary words
+
     int Size();     // Number of binary values
 
 private:
@@ -36,6 +38,10 @@ private:
 
     Node* root;
     int numValues;
+
+    // This helper function is used by the copy constructor and the
+    // assignment operator.
+    void copyOther(const BinaryDictionary& otherDict);
 
     // Used for de-constructor
     void DestroyHelper(Node* node);
