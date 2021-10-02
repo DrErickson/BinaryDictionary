@@ -73,7 +73,7 @@ void BinaryDictionary::Add(string digits) {
             curr = curr->one;
         }
         else{
-            throw "Bad digit";
+            throw BadDigit();
         }
     }
     curr->isNum = true;

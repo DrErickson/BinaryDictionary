@@ -10,7 +10,7 @@
 #include <fstream>
 using namespace std;
 
-
+class BadDigit{};
 
 class BinaryDictionary {
 public:
