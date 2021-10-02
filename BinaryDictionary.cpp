@@ -63,9 +63,9 @@ void BinaryDictionary::Add(string digits) {
 
         // Pick which digit branch to go to.
         if (digits[i] == '0') {
-            if (curr->zero == nullptr)
-                curr->zero = new Node;
-            curr = curr->zero;
+            if (curr->zero == nullptr)      // If no branch exists already
+                curr->zero = new Node;      // Make a branch
+            curr = curr->zero;              // Travel down zero branch
         }
         else if (digits[i] == '1') {
             if (curr->one == nullptr)
@@ -100,14 +100,14 @@ bool BinaryDictionary::Contains(string digits) {
             curr = curr->zero;
         }
         else if (digits[i] == '1') {
-            curr = curr->zero;
+            curr = curr->one;
         }
         else{
             throw "Bad digit";
         }
     }
 
-    return true;
+    return curr->isNum;
 }
 
 

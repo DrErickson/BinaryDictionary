@@ -16,13 +16,13 @@ class BinaryDictionary {
 public:
     BinaryDictionary();
     ~BinaryDictionary();
-    explicit BinaryDictionary(const BinaryDictionary& otherDict);
+    BinaryDictionary(const BinaryDictionary& otherDict);  // copy constructor
 
     void SaveDictionary(string filename);
 
     BinaryDictionary& operator=(const BinaryDictionary& otherDict);
 
-    void Add(string binValue);       // Add value to the tree
+    void Add(string binValue);    // Add value to the tree
     bool Contains(string value);  // Determines if value is in the tree
 
     void MakeEmpty();   // Remove all binary words
